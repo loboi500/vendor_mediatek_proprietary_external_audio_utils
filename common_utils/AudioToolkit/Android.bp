@@ -1,0 +1,61 @@
+cc_library_headers {
+    name: "libaudiotoolkit_headers",
+    export_include_dirs: [
+        ".",
+    ],
+}
+
+cc_library_shared {
+    name: "libaudiotoolkit",
+    system_ext_specific: true,
+    srcs: [
+        "AudioToolkit.cpp",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libaudioclient",
+    ],
+    header_libs: [
+        "audio_util_common_headers",
+    ],
+    cflags: [
+        "-DSYS_IMPL",
+    ],
+    export_include_dirs: [
+        ".",
+    ],
+    proprietary: false,
+    owner: "mtk",
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+}
+
+cc_library_shared {
+    name: "libaudiotoolkit_vendor",
+    srcs: [
+        "AudioToolkit.cpp",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+    ],
+    header_libs: [
+        "audio_util_common_headers",
+    ],
+    export_include_dirs: [
+        ".",
+    ],
+    proprietary: true,
+    owner: "mtk",
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+}

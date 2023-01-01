@@ -1,0 +1,14 @@
+cc_library_headers {
+    name: "audio_customization_common_headers",
+    host_supported: true,
+    export_include_dirs: [
+        ".",
+    ],
+}
+
+cc_library_headers {
+    name: "audio_customization_common_includes",
+    export_include_dirs: [
+        ".",
+    ],
+}
